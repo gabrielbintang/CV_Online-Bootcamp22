@@ -52,6 +52,10 @@ public class ConsoleTest {
 //=======================ROLE MII===============================================
 //=======================Achievement============================================
         //Delete
+//        achievement.setId("idach007");
+//        achievement.setName("");
+//        achievement.setDescription("");
+//        achievement.setEmployee(new Employee("iduser02"));
 //        System.out.println(achievementDAO.functions(achievement, 2));
         //Select
 //        achievement.setId("idach001");
@@ -101,6 +105,9 @@ public class ConsoleTest {
 //        clientDAO.functions(client, 1);
 
 //==============================Client==========================================
+//==============================Education=======================================
+
+//==============================Education=======================================
         sessionFactory.close();
 
     }
