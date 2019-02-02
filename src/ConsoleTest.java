@@ -1,7 +1,11 @@
 
 import daos.AchievementDAO;
+import daos.CertificationDAO;
 import daos.RoleMiiDAO;
+import java.time.Instant;
+import java.util.Date;
 import models.Achievement;
+import models.Certification;
 import models.Employee;
 import models.RoleMii;
 import org.hibernate.SessionFactory;
@@ -26,6 +30,9 @@ public class ConsoleTest {
         RoleMii rolemii = new RoleMii();
         AchievementDAO achievementDAO = new AchievementDAO(sessionFactory);
         Achievement achievement = new Achievement();
+        CertificationDAO certificationDAO = new CertificationDAO(sessionFactory);
+        Certification certification = new Certification();
+
 //        EmployeeDAO employeeDAO = new EmployeeDAO(sessionFactory);
         Employee employee = new Employee();
 
@@ -55,9 +62,27 @@ public class ConsoleTest {
 //        achievement.setEmployee(new Employee("iduser02"));
 //        achievementDAO.functions(achievement, 1);
 //=======================Achievement============================================
-//=======================Achievement============================================
+//=======================Certification==========================================
+        //Delete
+//        System.out.println(certificationDAO.functions(certification, 2));
+        //Select
+//        certification.setId("idcer002");
+//        certification.setName("CISCO");
+//        for (Certification c : certificationDAO.functions(certification, 3)) {
+//            System.out.println(c.getId() + "-" + c.getName());
+//        }
+        //Insert/update
+        certification.setId("idcer002");
+        certification.setName("CISCOO");
+        certification.setExpiredDate(Date.from(Instant.now()));
+        certification.setDescription("CISCOOoo");
+        certification.setEmployee(new Employee("iduser02"));
+        certificationDAO.functions(certification, 1);
+//=======================Certification==========================================
+//==============================Client==========================================
 
 
+//==============================Client==========================================
         sessionFactory.close();
 
     }
