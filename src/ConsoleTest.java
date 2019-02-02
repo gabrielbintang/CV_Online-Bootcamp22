@@ -5,6 +5,7 @@ import daos.ClientDAO;
 import daos.EducationDAO;
 import daos.EmployeeDAO;
 import daos.ExperienceDAO;
+import daos.LanguageDAO;
 import daos.ProjectDAO;
 import daos.RoleMiiDAO;
 import java.text.ParseException;
@@ -16,6 +17,7 @@ import models.Client;
 import models.Education;
 import models.Employee;
 import models.Experience;
+import models.Language;
 import models.MajorUniversity;
 import models.Project;
 import models.RoleMii;
@@ -53,6 +55,8 @@ public class ConsoleTest {
         Employee employee = new Employee();
         ExperienceDAO experienceDAO = new ExperienceDAO(sessionFactory);
         Experience experience = new Experience();
+        LanguageDAO languageDAO = new LanguageDAO(sessionFactory);
+        Language language = new Language();
 
 //=======================ROLE MII===============================================
         //Insert & Update        
@@ -225,6 +229,23 @@ public class ConsoleTest {
 //        experience.setEmployee(new Employee(""));
 //        experienceDAO.functions(experience, 1);
 //==============================Experience======================================
+//==============================Language========================================
+//        Delete
+//        language.setId("");
+//        language.setName("");
+//        System.out.println(languageDAO.functions(language, 2));
+//
+//        Select
+//        language.setId("");
+//        language.setName("a");
+//        for (Language l : languageDAO.functions(language, 3)) {
+//            System.out.println(l.getId() + "-" + l.getName());
+//        }
+//        Insert/update
+//        language.setId("");
+//        language.setName("");
+//        languageDAO.functions(language, 1);
+//==============================Language========================================
 //=======================Project================================================
 //        Delete
 //        achievement.setId("idach007");
