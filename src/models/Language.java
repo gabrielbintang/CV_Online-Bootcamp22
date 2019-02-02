@@ -6,11 +6,12 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -40,8 +41,8 @@ public class Language implements Serializable {
     @Basic(optional = false)
     @Column(name = "NAME")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "language")
-    private Collection<LanguageEmployee> languageEmployeeCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "language", fetch = FetchType.LAZY)
+    private List<LanguageEmployee> languageEmployeeList;
 
     public Language() {
     }
@@ -72,12 +73,12 @@ public class Language implements Serializable {
     }
 
     @XmlTransient
-    public Collection<LanguageEmployee> getLanguageEmployeeCollection() {
-        return languageEmployeeCollection;
+    public List<LanguageEmployee> getLanguageEmployeeList() {
+        return languageEmployeeList;
     }
 
-    public void setLanguageEmployeeCollection(Collection<LanguageEmployee> languageEmployeeCollection) {
-        this.languageEmployeeCollection = languageEmployeeCollection;
+    public void setLanguageEmployeeList(List<LanguageEmployee> languageEmployeeList) {
+        this.languageEmployeeList = languageEmployeeList;
     }
 
     @Override

@@ -6,11 +6,12 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -44,8 +45,8 @@ public class Qualification implements Serializable {
     @Basic(optional = false)
     @Column(name = "SPECIALIZATION")
     private String specialization;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "qualification")
-    private Collection<QualificationEmployee> qualificationEmployeeCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "qualification", fetch = FetchType.LAZY)
+    private List<QualificationEmployee> qualificationEmployeeList;
 
     public Qualification() {
     }
@@ -85,12 +86,12 @@ public class Qualification implements Serializable {
     }
 
     @XmlTransient
-    public Collection<QualificationEmployee> getQualificationEmployeeCollection() {
-        return qualificationEmployeeCollection;
+    public List<QualificationEmployee> getQualificationEmployeeList() {
+        return qualificationEmployeeList;
     }
 
-    public void setQualificationEmployeeCollection(Collection<QualificationEmployee> qualificationEmployeeCollection) {
-        this.qualificationEmployeeCollection = qualificationEmployeeCollection;
+    public void setQualificationEmployeeList(List<QualificationEmployee> qualificationEmployeeList) {
+        this.qualificationEmployeeList = qualificationEmployeeList;
     }
 
     @Override

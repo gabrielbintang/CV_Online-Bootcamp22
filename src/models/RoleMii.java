@@ -6,11 +6,12 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -40,8 +41,8 @@ public class RoleMii implements Serializable {
     @Basic(optional = false)
     @Column(name = "NAME")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
-    private Collection<UserMii> userMiiCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role", fetch = FetchType.LAZY)
+    private List<UserMii> userMiiList;
 
     public RoleMii() {
     }
@@ -72,12 +73,12 @@ public class RoleMii implements Serializable {
     }
 
     @XmlTransient
-    public Collection<UserMii> getUserMiiCollection() {
-        return userMiiCollection;
+    public List<UserMii> getUserMiiList() {
+        return userMiiList;
     }
 
-    public void setUserMiiCollection(Collection<UserMii> userMiiCollection) {
-        this.userMiiCollection = userMiiCollection;
+    public void setUserMiiList(List<UserMii> userMiiList) {
+        this.userMiiList = userMiiList;
     }
 
     @Override

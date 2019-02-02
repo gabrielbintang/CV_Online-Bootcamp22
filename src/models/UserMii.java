@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -48,12 +49,12 @@ public class UserMii implements Serializable {
     @Basic(optional = false)
     @Column(name = "EMAIL")
     private String email;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userMii")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userMii", fetch = FetchType.LAZY)
     private Employee employee;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userMii")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userMii", fetch = FetchType.LAZY)
     private Client client;
     @JoinColumn(name = "ROLE", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private RoleMii role;
 
     public UserMii() {

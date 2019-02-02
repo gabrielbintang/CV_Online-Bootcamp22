@@ -6,12 +6,13 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
@@ -78,29 +79,29 @@ public class Employee implements Serializable {
     @Lob
     @Column(name = "PHOTO")
     private Serializable photo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<LanguageEmployee> languageEmployeeCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<WorkAssignment> workAssignmentCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<ProjectEmployee> projectEmployeeCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<LanguageEmployee> languageEmployeeList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<WorkAssignment> workAssignmentList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<ProjectEmployee> projectEmployeeList;
     @JoinColumn(name = "ID", referencedColumnName = "ID", insertable = false, updatable = false)
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
     private UserMii userMii;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<Certification> certificationCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<Education> educationCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<Training> trainingCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<Organization> organizationCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<Achievement> achievementCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<QualificationEmployee> qualificationEmployeeCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-    private Collection<Experience> experienceCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<Certification> certificationList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<Education> educationList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<Training> trainingList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<Organization> organizationList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<Achievement> achievementList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<QualificationEmployee> qualificationEmployeeList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.LAZY)
+    private List<Experience> experienceList;
 
     public Employee() {
     }
@@ -200,30 +201,30 @@ public class Employee implements Serializable {
     }
 
     @XmlTransient
-    public Collection<LanguageEmployee> getLanguageEmployeeCollection() {
-        return languageEmployeeCollection;
+    public List<LanguageEmployee> getLanguageEmployeeList() {
+        return languageEmployeeList;
     }
 
-    public void setLanguageEmployeeCollection(Collection<LanguageEmployee> languageEmployeeCollection) {
-        this.languageEmployeeCollection = languageEmployeeCollection;
-    }
-
-    @XmlTransient
-    public Collection<WorkAssignment> getWorkAssignmentCollection() {
-        return workAssignmentCollection;
-    }
-
-    public void setWorkAssignmentCollection(Collection<WorkAssignment> workAssignmentCollection) {
-        this.workAssignmentCollection = workAssignmentCollection;
+    public void setLanguageEmployeeList(List<LanguageEmployee> languageEmployeeList) {
+        this.languageEmployeeList = languageEmployeeList;
     }
 
     @XmlTransient
-    public Collection<ProjectEmployee> getProjectEmployeeCollection() {
-        return projectEmployeeCollection;
+    public List<WorkAssignment> getWorkAssignmentList() {
+        return workAssignmentList;
     }
 
-    public void setProjectEmployeeCollection(Collection<ProjectEmployee> projectEmployeeCollection) {
-        this.projectEmployeeCollection = projectEmployeeCollection;
+    public void setWorkAssignmentList(List<WorkAssignment> workAssignmentList) {
+        this.workAssignmentList = workAssignmentList;
+    }
+
+    @XmlTransient
+    public List<ProjectEmployee> getProjectEmployeeList() {
+        return projectEmployeeList;
+    }
+
+    public void setProjectEmployeeList(List<ProjectEmployee> projectEmployeeList) {
+        this.projectEmployeeList = projectEmployeeList;
     }
 
     public UserMii getUserMii() {
@@ -235,66 +236,66 @@ public class Employee implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Certification> getCertificationCollection() {
-        return certificationCollection;
+    public List<Certification> getCertificationList() {
+        return certificationList;
     }
 
-    public void setCertificationCollection(Collection<Certification> certificationCollection) {
-        this.certificationCollection = certificationCollection;
-    }
-
-    @XmlTransient
-    public Collection<Education> getEducationCollection() {
-        return educationCollection;
-    }
-
-    public void setEducationCollection(Collection<Education> educationCollection) {
-        this.educationCollection = educationCollection;
+    public void setCertificationList(List<Certification> certificationList) {
+        this.certificationList = certificationList;
     }
 
     @XmlTransient
-    public Collection<Training> getTrainingCollection() {
-        return trainingCollection;
+    public List<Education> getEducationList() {
+        return educationList;
     }
 
-    public void setTrainingCollection(Collection<Training> trainingCollection) {
-        this.trainingCollection = trainingCollection;
-    }
-
-    @XmlTransient
-    public Collection<Organization> getOrganizationCollection() {
-        return organizationCollection;
-    }
-
-    public void setOrganizationCollection(Collection<Organization> organizationCollection) {
-        this.organizationCollection = organizationCollection;
+    public void setEducationList(List<Education> educationList) {
+        this.educationList = educationList;
     }
 
     @XmlTransient
-    public Collection<Achievement> getAchievementCollection() {
-        return achievementCollection;
+    public List<Training> getTrainingList() {
+        return trainingList;
     }
 
-    public void setAchievementCollection(Collection<Achievement> achievementCollection) {
-        this.achievementCollection = achievementCollection;
-    }
-
-    @XmlTransient
-    public Collection<QualificationEmployee> getQualificationEmployeeCollection() {
-        return qualificationEmployeeCollection;
-    }
-
-    public void setQualificationEmployeeCollection(Collection<QualificationEmployee> qualificationEmployeeCollection) {
-        this.qualificationEmployeeCollection = qualificationEmployeeCollection;
+    public void setTrainingList(List<Training> trainingList) {
+        this.trainingList = trainingList;
     }
 
     @XmlTransient
-    public Collection<Experience> getExperienceCollection() {
-        return experienceCollection;
+    public List<Organization> getOrganizationList() {
+        return organizationList;
     }
 
-    public void setExperienceCollection(Collection<Experience> experienceCollection) {
-        this.experienceCollection = experienceCollection;
+    public void setOrganizationList(List<Organization> organizationList) {
+        this.organizationList = organizationList;
+    }
+
+    @XmlTransient
+    public List<Achievement> getAchievementList() {
+        return achievementList;
+    }
+
+    public void setAchievementList(List<Achievement> achievementList) {
+        this.achievementList = achievementList;
+    }
+
+    @XmlTransient
+    public List<QualificationEmployee> getQualificationEmployeeList() {
+        return qualificationEmployeeList;
+    }
+
+    public void setQualificationEmployeeList(List<QualificationEmployee> qualificationEmployeeList) {
+        this.qualificationEmployeeList = qualificationEmployeeList;
+    }
+
+    @XmlTransient
+    public List<Experience> getExperienceList() {
+        return experienceList;
+    }
+
+    public void setExperienceList(List<Experience> experienceList) {
+        this.experienceList = experienceList;
     }
 
     @Override

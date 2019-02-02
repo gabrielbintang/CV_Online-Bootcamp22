@@ -6,11 +6,12 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -40,8 +41,8 @@ public class Major implements Serializable {
     @Basic(optional = false)
     @Column(name = "NAME")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "major")
-    private Collection<MajorUniversity> majorUniversityCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "major", fetch = FetchType.LAZY)
+    private List<MajorUniversity> majorUniversityList;
 
     public Major() {
     }
@@ -72,12 +73,12 @@ public class Major implements Serializable {
     }
 
     @XmlTransient
-    public Collection<MajorUniversity> getMajorUniversityCollection() {
-        return majorUniversityCollection;
+    public List<MajorUniversity> getMajorUniversityList() {
+        return majorUniversityList;
     }
 
-    public void setMajorUniversityCollection(Collection<MajorUniversity> majorUniversityCollection) {
-        this.majorUniversityCollection = majorUniversityCollection;
+    public void setMajorUniversityList(List<MajorUniversity> majorUniversityList) {
+        this.majorUniversityList = majorUniversityList;
     }
 
     @Override

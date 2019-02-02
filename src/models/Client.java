@@ -6,11 +6,12 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
@@ -50,10 +51,10 @@ public class Client implements Serializable {
     @Basic(optional = false)
     @Column(name = "IS_DELETE")
     private String isDelete;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
-    private Collection<Project> projectCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client", fetch = FetchType.LAZY)
+    private List<Project> projectList;
     @JoinColumn(name = "ID", referencedColumnName = "ID", insertable = false, updatable = false)
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
     private UserMii userMii;
 
     public Client() {
@@ -103,12 +104,12 @@ public class Client implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Project> getProjectCollection() {
-        return projectCollection;
+    public List<Project> getProjectList() {
+        return projectList;
     }
 
-    public void setProjectCollection(Collection<Project> projectCollection) {
-        this.projectCollection = projectCollection;
+    public void setProjectList(List<Project> projectList) {
+        this.projectList = projectList;
     }
 
     public UserMii getUserMii() {

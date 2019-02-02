@@ -6,12 +6,13 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -68,10 +69,10 @@ public class Project implements Serializable {
     @Column(name = "PROJECT_STATUS")
     private String projectStatus;
     @JoinColumn(name = "CLIENT", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Client client;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
-    private Collection<ProjectEmployee> projectEmployeeCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project", fetch = FetchType.LAZY)
+    private List<ProjectEmployee> projectEmployeeList;
 
     public Project() {
     }
@@ -155,12 +156,12 @@ public class Project implements Serializable {
     }
 
     @XmlTransient
-    public Collection<ProjectEmployee> getProjectEmployeeCollection() {
-        return projectEmployeeCollection;
+    public List<ProjectEmployee> getProjectEmployeeList() {
+        return projectEmployeeList;
     }
 
-    public void setProjectEmployeeCollection(Collection<ProjectEmployee> projectEmployeeCollection) {
-        this.projectEmployeeCollection = projectEmployeeCollection;
+    public void setProjectEmployeeList(List<ProjectEmployee> projectEmployeeList) {
+        this.projectEmployeeList = projectEmployeeList;
     }
 
     @Override

@@ -6,11 +6,12 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -46,13 +47,13 @@ public class MajorUniversity implements Serializable {
     @Basic(optional = false)
     @Column(name = "DEGREE_LEVEL")
     private String degreeLevel;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorUniversity")
-    private Collection<Education> educationCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorUniversity", fetch = FetchType.LAZY)
+    private List<Education> educationList;
     @JoinColumn(name = "MAJOR", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Major major;
     @JoinColumn(name = "UNIVERSITY", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private University university;
 
     public MajorUniversity() {
@@ -93,12 +94,12 @@ public class MajorUniversity implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Education> getEducationCollection() {
-        return educationCollection;
+    public List<Education> getEducationList() {
+        return educationList;
     }
 
-    public void setEducationCollection(Collection<Education> educationCollection) {
-        this.educationCollection = educationCollection;
+    public void setEducationList(List<Education> educationList) {
+        this.educationList = educationList;
     }
 
     public Major getMajor() {

@@ -41,14 +41,23 @@ public class ConsoleTest {
         Employee employee = new Employee();
 
 //=======================ROLE MII===============================================
-        //Delete
-//        System.out.println(roleMiiDAO.functions(rolemii, 2));
-        //Select
+        //Insert & Update        
+//        rolemii.setId("idrole05");
+//        rolemii.setName("Testing");
+//        System.out.println(roleMiiDAO.functions(rolemii,1));
+
+//Select
 //        rolemii.setId("idrole02");
 //        rolemii.setName("");
 //        for (RoleMii role : roleMiiDAO.functions(rolemii, 3)) {
 //            System.out.println(role.getId() + "-" + role.getName());
 //        }
+
+//Delete
+//        rolemii.setId("idrole05");        
+//        rolemii.setName("");
+//        System.out.println(roleMiiDAO.functions(rolemii, 2));
+    
 //=======================ROLE MII===============================================
 //=======================Achievement============================================
         //Delete
@@ -105,10 +114,9 @@ public class ConsoleTest {
 //        clientDAO.functions(client, 1);
 
 //==============================Client==========================================
-//==============================Education=======================================
-
-//==============================Education=======================================
-        sessionFactory.close();
-
+       sessionFactory.close();
+//
     }
 }
+
+

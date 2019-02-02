@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -56,10 +57,10 @@ public class ProjectEmployee implements Serializable {
     @Column(name = "PROJECT_EMPLOYEE_STATUS")
     private String projectEmployeeStatus;
     @JoinColumn(name = "EMPLOYEE", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Employee employee;
     @JoinColumn(name = "PROJECT", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Project project;
 
     public ProjectEmployee() {
