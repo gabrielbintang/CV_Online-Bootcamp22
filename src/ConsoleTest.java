@@ -1,11 +1,13 @@
 
 import daos.AchievementDAO;
 import daos.CertificationDAO;
+import daos.ClientDAO;
 import daos.RoleMiiDAO;
 import java.time.Instant;
 import java.util.Date;
 import models.Achievement;
 import models.Certification;
+import models.Client;
 import models.Employee;
 import models.RoleMii;
 import org.hibernate.SessionFactory;
@@ -32,6 +34,8 @@ public class ConsoleTest {
         Achievement achievement = new Achievement();
         CertificationDAO certificationDAO = new CertificationDAO(sessionFactory);
         Certification certification = new Certification();
+        ClientDAO clientDAO = new ClientDAO(sessionFactory);
+        Client client = new Client();
 
 //        EmployeeDAO employeeDAO = new EmployeeDAO(sessionFactory);
         Employee employee = new Employee();
@@ -72,15 +76,29 @@ public class ConsoleTest {
 //            System.out.println(c.getId() + "-" + c.getName());
 //        }
         //Insert/update
-        certification.setId("idcer002");
-        certification.setName("CISCOO");
-        certification.setExpiredDate(Date.from(Instant.now()));
-        certification.setDescription("CISCOOoo");
-        certification.setEmployee(new Employee("iduser02"));
-        certificationDAO.functions(certification, 1);
+//        certification.setId("idcer002");
+//        certification.setName("CISCO");
+//        certification.setExpiredDate(Date.from(Instant.now()));
+//        certification.setDescription("CISCO Certification");
+//        certification.setEmployee(new Employee("iduser02"));
+//        certificationDAO.functions(certification, 1);
 //=======================Certification==========================================
 //==============================Client==========================================
-
+        //Delete
+//        System.out.println(clientDAO.functions(client, 2));
+        //Select
+//        client.setId("");
+//        client.setAddress("a");
+//        for (Client c : clientDAO.functions(client, 3)) {
+//            System.out.println(c.getId() + "-" + c.getAddress());
+//        }
+        //Insert/update
+//        client.setId("iduser05");
+//        client.setAddress("Riau");
+//        client.setBusiness("Oil and Gas");
+//        client.setIsDelete("NO");
+//
+//        clientDAO.functions(client, 1);
 
 //==============================Client==========================================
         sessionFactory.close();
