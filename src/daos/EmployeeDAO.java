@@ -44,10 +44,10 @@ public class EmployeeDAO {
             } else if (opt == 3) {
                 Criteria c = session.createCriteria(Employee.class);
                 c.add(Restrictions.or(Restrictions.eq("id", employee.getId()),
-                        Restrictions.like("religion", employee.getReligion()),
-                        Restrictions.like("phone", employee.getPhone()),
-                        Restrictions.like("maritalStatus", employee.getMaritalStatus()),
-                        Restrictions.like("nationality", employee.getNationality()),
+                        Restrictions.like("religion", "%"+employee.getReligion()+"%"),
+                        Restrictions.like("phone", "%"+employee.getPhone()+"%"),
+                        Restrictions.like("maritalStatus", "%"+employee.getMaritalStatus()+"%"),
+                        Restrictions.like("nationality", "%"+employee.getNationality()+"%"),
                         Restrictions.like("birthDate", employee.getBirthDate()),
                         Restrictions.like("startDate", employee.getStartDate()),
                         Restrictions.like("endDate", employee.getEndDate()),

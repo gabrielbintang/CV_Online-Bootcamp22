@@ -4,6 +4,7 @@ import daos.CertificationDAO;
 import daos.ClientDAO;
 import daos.EducationDAO;
 import daos.EmployeeDAO;
+import daos.ExperienceDAO;
 import daos.ProjectDAO;
 import daos.RoleMiiDAO;
 import java.text.ParseException;
@@ -14,6 +15,7 @@ import models.Certification;
 import models.Client;
 import models.Education;
 import models.Employee;
+import models.Experience;
 import models.MajorUniversity;
 import models.Project;
 import models.RoleMii;
@@ -49,6 +51,8 @@ public class ConsoleTest {
         Project project = new Project();
         EmployeeDAO employeeDAO = new EmployeeDAO(sessionFactory);
         Employee employee = new Employee();
+        ExperienceDAO experienceDAO = new ExperienceDAO(sessionFactory);
+        Experience experience = new Experience();
 
 //=======================ROLE MII===============================================
         //Insert & Update        
@@ -198,6 +202,29 @@ public class ConsoleTest {
 //        employee.setPhoto("");
 //        employeeDAO.functions(employee, 1);
 //==============================Employee========================================
+//==============================Experience======================================
+//        Delete
+//        experience.setId("");
+//        experience.setName("");
+//        experience.setDescription("");
+//        experience.setEmployee(new Employee(""));
+//        System.out.println(experienceDAO.functions(experience, 2));
+//
+//        Select
+//        experience.setId("");
+//        experience.setName("a");
+//        experience.setDescription("");
+//        experience.setEmployee(new Employee(""));
+//        for (Experience e : experienceDAO.functions(experience, 3)) {
+//            System.out.println(e.getId() + "-" + e.getName());
+//        }
+//        Insert/update
+//        experience.setId("");
+//        experience.setName("a");
+//        experience.setDescription("");
+//        experience.setEmployee(new Employee(""));
+//        experienceDAO.functions(experience, 1);
+//==============================Experience======================================
 //=======================Project================================================
 //        Delete
 //        achievement.setId("idach007");
