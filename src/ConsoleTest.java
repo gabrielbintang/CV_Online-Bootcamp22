@@ -3,6 +3,7 @@ import daos.AchievementDAO;
 import daos.CertificationDAO;
 import daos.ClientDAO;
 import daos.EducationDAO;
+import daos.EmployeeDAO;
 import daos.ProjectDAO;
 import daos.RoleMiiDAO;
 import java.text.ParseException;
@@ -46,8 +47,7 @@ public class ConsoleTest {
         Education education = new Education();
         ProjectDAO projectDAO = new ProjectDAO(sessionFactory);
         Project project = new Project();
-
-//        EmployeeDAO employeeDAO = new EmployeeDAO(sessionFactory);
+        EmployeeDAO employeeDAO = new EmployeeDAO(sessionFactory);
         Employee employee = new Employee();
 
 //=======================ROLE MII===============================================
@@ -160,6 +160,44 @@ public class ConsoleTest {
 //        project.setClient(new Client("iduser05"));
 //        projectDAO.functions(project, 1);
 //==============================Education=======================================
+//==============================Employee========================================
+//        Delete
+//        employee.setId("");
+//        employee.setReligion("");
+//        employee.setPhone("");
+//        employee.setMaritalStatus("");
+//        employee.setBirthDate(Date.from(Instant.now()));
+//        employee.setStartDate(Date.from(Instant.now()));
+//        employee.setEndDate(Date.from(Instant.now()));
+//        employee.setIsDelete("");
+//        employee.setPhoto("");
+//        System.out.println(employeeDAO.functions(employee, 2));
+//
+//        Select
+//        employee.setId("iduser02");
+//        employee.setReligion("");
+//        employee.setPhone("");
+//        employee.setMaritalStatus("");
+////        employee.setBirthDate(Date.from(Instant.now()));
+////        employee.setStartDate(Date.from(Instant.now()));
+////        employee.setEndDate(Date.from(Instant.now()));
+//        employee.setIsDelete("");
+////        employee.setPhoto("");
+//        for (Employee e : employeeDAO.functions(employee, 3)) {
+//            System.out.println(e.getId() + "-" + e.getMaritalStatus());
+//        }
+//        Insert/update
+//        employee.setId("");
+//        employee.setReligion("");
+//        employee.setPhone("");
+//        employee.setMaritalStatus("");
+//        employee.setBirthDate(Date.from(Instant.now()));
+//        employee.setStartDate(Date.from(Instant.now()));
+//        employee.setEndDate(Date.from(Instant.now()));
+//        employee.setIsDelete("");
+//        employee.setPhoto("");
+//        employeeDAO.functions(employee, 1);
+//==============================Employee========================================
 //=======================Project================================================
 //        Delete
 //        achievement.setId("idach007");

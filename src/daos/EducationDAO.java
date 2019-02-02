@@ -19,7 +19,8 @@ import org.hibernate.criterion.Restrictions;
  * @author Rayhan
  */
 public class EducationDAO {
-     private Session session;
+
+    private Session session;
     private Transaction trasaction;
     private SessionFactory sessionFactory;
 
@@ -29,7 +30,7 @@ public class EducationDAO {
     public EducationDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-    
+
     public List<Education> functions(Education education, int opt) {
         List<Education> educations = new ArrayList<Education>();
 
@@ -45,7 +46,7 @@ public class EducationDAO {
                 c.add(Restrictions.or(Restrictions.eq("id", education.getId()),
                         Restrictions.like("startDate", education.getStartDate()),
                         Restrictions.like("endDate", education.getEndDate()),
-                        Restrictions.like("ip", "%"+education.getIp()+"%"),
+                        Restrictions.like("ip", "%" + education.getIp() + "%"),
                         Restrictions.like("majorUniversity", education.getMajorUniversity()),
                         Restrictions.like("employee", education.getEmployee())));
                 educations = c.list();
@@ -61,5 +62,5 @@ public class EducationDAO {
         }
         return educations;
     }
-    
+
 }
