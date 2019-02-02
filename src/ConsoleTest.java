@@ -143,8 +143,8 @@ public class ConsoleTest {
 //        project.setEndDate(Date.from(Instant.now()));
 //        project.setProjectStatus("done");
 //        project.setProjectSpecification("deskripsibla");
-//        project.setClient(new Client("iduser02"));
-//        System.out.println(projectDAO.functions(project, 1);
+//        project.setClient(new Client("iduser05"));
+//        projectDAO.functions(project, 1);
 //=======================Project============================================
        sessionFactory.close();
 //

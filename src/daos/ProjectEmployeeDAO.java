@@ -8,6 +8,7 @@ package daos;
 import java.util.ArrayList;
 import java.util.List;
 import models.Project;
+import models.ProjectEmployee;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,38 +19,37 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Dell
  */
-public class ProjectDAO {
+public class ProjectEmployeeDAO {
 
     private Session session;
     private Transaction trasaction;
     private SessionFactory sessionFactory;
 
-    public ProjectDAO() {
+    public ProjectEmployeeDAO() {
     }
 
-    public ProjectDAO(SessionFactory sessionFactory) {
+    public ProjectEmployeeDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    public List<Project> functions(Project project, int opt) {
-        List<Project> projects = new ArrayList<Project>();
+    public List<ProjectEmployee> functions(ProjectEmployee projectEmployee, int opt) {
+        List<ProjectEmployee> projects = new ArrayList<ProjectEmployee>();
         try {
             session = sessionFactory.openSession();
             trasaction = session.beginTransaction();
             if (opt == 1) {
-                session.saveOrUpdate(project);
+                session.saveOrUpdate(projectEmployee);
             } else if (opt == 2) {
-                session.delete(project);
+                session.delete(projectEmployee);
             } else if (opt == 3) {
-                Criteria c = session.createCriteria(Project.class);
-                c.add(Restrictions.or(Restrictions.eq("id", project.getId()),
-                        Restrictions.like("name", "%"+project.getName() + "%"),
-                        Restrictions.eq("startDate",project.getStartDate()),
-                        Restrictions.eq("endDate",project.getEndDate()),
-                        Restrictions.like("projectStatus", "%"+project.getProjectStatus() + "%"),
-                        Restrictions.like("assessment", "%"+project.getAssessment() + "%"),
-                        Restrictions.like("client", "%"+project.getClient() + "%"),
-                        Restrictions.like("projectSpecification", "%"+project.getProjectSpecification() + "%")));
+                Criteria c = session.createCriteria(ProjectEmployee.class);
+                c.add(Restrictions.or(Restrictions.eq("id", projectEmployee.getId()),
+                        Restrictions.eq("startDate",projectEmployee.getStartDate()),
+                        Restrictions.eq("endDate",projectEmployee.getEndDate()),
+                        Restrictions.like("projectEmployeeStatus", "%"+projectEmployee.getProjectEmployeeStatus() + "%"),
+                        Restrictions.like("jobDescription", "%"+projectEmployee.getJobDescription()+ "%"),
+                        Restrictions.like("employee", "%"+projectEmployee.getEmployee()+ "%"),
+                        Restrictions.like("project", "%"+projectEmployee.getProject() + "%")));
                 projects = c.list();
             }
             trasaction.commit();
