@@ -2,6 +2,7 @@
 import daos.AchievementDAO;
 import daos.CertificationDAO;
 import daos.ClientDAO;
+import daos.EducationDAO;
 import daos.ProjectDAO;
 import daos.RoleMiiDAO;
 import java.text.ParseException;
@@ -10,7 +11,9 @@ import java.util.Date;
 import models.Achievement;
 import models.Certification;
 import models.Client;
+import models.Education;
 import models.Employee;
+import models.MajorUniversity;
 import models.Project;
 import models.RoleMii;
 import org.hibernate.SessionFactory;
@@ -39,6 +42,8 @@ public class ConsoleTest {
         Certification certification = new Certification();
         ClientDAO clientDAO = new ClientDAO(sessionFactory);
         Client client = new Client();
+        EducationDAO educationDAO = new EducationDAO(sessionFactory);
+        Education education = new Education();
         ProjectDAO projectDAO = new ProjectDAO(sessionFactory);
         Project project = new Project();
 
@@ -50,19 +55,16 @@ public class ConsoleTest {
 //        rolemii.setId("idrole05");
 //        rolemii.setName("Testing");
 //        System.out.println(roleMiiDAO.functions(rolemii,1));
-
 //Select
 //        rolemii.setId("idrole02");
 //        rolemii.setName("");
 //        for (RoleMii role : roleMiiDAO.functions(rolemii, 3)) {
 //            System.out.println(role.getId() + "-" + role.getName());
 //        }
-
 //Delete
 //        rolemii.setId("idrole05");        
 //        rolemii.setName("");
 //        System.out.println(roleMiiDAO.functions(rolemii, 2));
-    
 //=======================ROLE MII===============================================
 //=======================Achievement============================================
         //Delete
@@ -86,6 +88,11 @@ public class ConsoleTest {
 //=======================Achievement============================================
 //=======================Certification==========================================
         //Delete
+//        certification.setId("");
+//        certification.setName("");
+//        certification.setExpiredDate(Date.from(Instant.now()));
+//        certification.setDescription("");
+//        certification.setEmployee(new Employee(""));
 //        System.out.println(certificationDAO.functions(certification, 2));
         //Select
 //        certification.setId("idcer002");
@@ -103,10 +110,14 @@ public class ConsoleTest {
 //=======================Certification==========================================
 //==============================Client==========================================
         //Delete
+//        client.setId("");
+//        client.setAddress("");
+//        client.setBusiness("");
+//        client.setIsDelete("");
 //        System.out.println(clientDAO.functions(client, 2));
         //Select
-//        client.setId("");
-//        client.setAddress("a");
+//        client.setId("iduser05");
+//        client.setAddress("Riau");
 //        for (Client c : clientDAO.functions(client, 3)) {
 //            System.out.println(c.getId() + "-" + c.getAddress());
 //        }
@@ -117,25 +128,52 @@ public class ConsoleTest {
 //        client.setIsDelete("NO");
 //
 //        clientDAO.functions(client, 1);
-
 //==============================Client==========================================
-//=======================Project============================================
-
+//==============================Education=======================================
+//        Delete
+//        education.setId("");
+//        education.setStartDate(Date.from(Instant.now()));
+//        education.setEndDate(Date.from(Instant.now()));
+//        education.setIp("");
+//        education.setMajorUniversity(new MajorUniversity(""));
+//        education.setEmployee(new Employee("iduser02"));
+//        System.out.println(achievementDAO.functions(achievement, 2));
+//
+//        Select
+//        education.setId("");
+//        education.setStartDate(Date.from(Instant.now()));
+//        education.setEndDate(Date.from(Instant.now()));
+//        education.setIp("");
+//        education.setMajorUniversity(new MajorUniversity(""));
+//        education.setEmployee(new Employee("iduser02"));
+//        for (Education e : educationDAO.functions(education, 3)) {
+//            System.out.println(e.getId() + "-" + e.getMajorUniversity().getDegree());
+//        }
+//        Insert/update
+//        project.setId("idpro007");
+//        project.setName("BCA");
+//        project.setAssessment("Bagus");
+//        project.setStartDate(Date.from(Instant.now()));
+//        project.setEndDate(Date.from(Instant.now()));
+//        project.setProjectStatus("done");
+//        project.setProjectSpecification("deskripsibla");
+//        project.setClient(new Client("iduser05"));
+//        projectDAO.functions(project, 1);
+//==============================Education=======================================
+//=======================Project================================================
 //        Delete
 //        achievement.setId("idach007");
 //        achievement.setName("");
 //        achievement.setDescription("");
 //        achievement.setEmployee(new Employee("iduser02"));
 //        System.out.println(achievementDAO.functions(achievement, 2));
-
 //        Select
-//        project.setId("");
+//        project.setId("idpro001");
 //        project.setName("");
 //        for (Project p : projectDAO.functions(project, 3)) {
 //            System.out.println(p.getId() + "-" + p.getName());
 //        }
-
-////        Insert/update
+//        Insert/update
 //        project.setId("idpro007");
 //        project.setName("BCA");
 //        project.setAssessment("Bagus");
@@ -146,9 +184,7 @@ public class ConsoleTest {
 //        project.setClient(new Client("iduser05"));
 //        projectDAO.functions(project, 1);
 //=======================Project============================================
-       sessionFactory.close();
+        sessionFactory.close();
 //
     }
 }
-
-

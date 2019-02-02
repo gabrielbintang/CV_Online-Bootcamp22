@@ -43,10 +43,11 @@ public class EducationDAO {
             } else if (opt == 3) {
                 Criteria c = session.createCriteria(Education.class);
                 c.add(Restrictions.or(Restrictions.eq("id", education.getId()),
-                        Restrictions.like("startDate", "%"+education.getStartDate()+ "%"),
-                        Restrictions.like("ip", "%"+education.getEndDate()+ "%"),
-                        Restrictions.like("majorUniversity", "%"+education.getIp()+"%"),
-                        Restrictions.like("employee", "%"+education.getMajorUniversity()+"%")));
+                        Restrictions.like("startDate", education.getStartDate()),
+                        Restrictions.like("endDate", education.getEndDate()),
+                        Restrictions.like("ip", "%"+education.getIp()+"%"),
+                        Restrictions.like("majorUniversity", education.getMajorUniversity()),
+                        Restrictions.like("employee", education.getEmployee())));
                 educations = c.list();
             }
             trasaction.commit();
