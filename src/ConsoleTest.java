@@ -2,13 +2,16 @@
 import daos.AchievementDAO;
 import daos.CertificationDAO;
 import daos.ClientDAO;
+import daos.ProjectDAO;
 import daos.RoleMiiDAO;
+import java.text.ParseException;
 import java.time.Instant;
 import java.util.Date;
 import models.Achievement;
 import models.Certification;
 import models.Client;
 import models.Employee;
+import models.Project;
 import models.RoleMii;
 import org.hibernate.SessionFactory;
 
@@ -26,7 +29,7 @@ public class ConsoleTest {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
         RoleMiiDAO roleMiiDAO = new RoleMiiDAO(sessionFactory);
         RoleMii rolemii = new RoleMii();
@@ -36,6 +39,8 @@ public class ConsoleTest {
         Certification certification = new Certification();
         ClientDAO clientDAO = new ClientDAO(sessionFactory);
         Client client = new Client();
+        ProjectDAO projectDAO = new ProjectDAO(sessionFactory);
+        Project project = new Project();
 
 //        EmployeeDAO employeeDAO = new EmployeeDAO(sessionFactory);
         Employee employee = new Employee();
@@ -114,6 +119,33 @@ public class ConsoleTest {
 //        clientDAO.functions(client, 1);
 
 //==============================Client==========================================
+//=======================Project============================================
+
+//        Delete
+//        achievement.setId("idach007");
+//        achievement.setName("");
+//        achievement.setDescription("");
+//        achievement.setEmployee(new Employee("iduser02"));
+//        System.out.println(achievementDAO.functions(achievement, 2));
+
+//        Select
+//        project.setId("");
+//        project.setName("");
+//        for (Project p : projectDAO.functions(project, 3)) {
+//            System.out.println(p.getId() + "-" + p.getName());
+//        }
+
+////        Insert/update
+//        project.setId("idpro007");
+//        project.setName("BCA");
+//        project.setAssessment("Bagus");
+//        project.setStartDate(Date.from(Instant.now()));
+//        project.setEndDate(Date.from(Instant.now()));
+//        project.setProjectStatus("done");
+//        project.setProjectSpecification("deskripsibla");
+//        project.setClient(new Client("iduser02"));
+//        System.out.println(projectDAO.functions(project, 1);
+//=======================Project============================================
        sessionFactory.close();
 //
     }
