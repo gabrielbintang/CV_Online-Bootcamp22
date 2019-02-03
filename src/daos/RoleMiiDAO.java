@@ -42,11 +42,7 @@ public class RoleMiiDAO {
             } else if (opt == 2) {
                 session.delete(roleMii);
             } else if (opt == 3) {
-//                Criteria c;
-//                Criterion id = Restrictions.eq("id", r.getRoleMii());
-//                Criterion name = Restrictions.like("roleMiiName", r.getRoleMiiName() + "%");
                 Criteria c = session.createCriteria(RoleMii.class);
-//                LogicalExpression orE = Restrictions.or(id, name);
                 c.add(Restrictions.or(Restrictions.eq("id", roleMii.getId()),
                         Restrictions.like("name",
                                 roleMii.getName()+ "%")));

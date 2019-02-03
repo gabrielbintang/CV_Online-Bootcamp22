@@ -46,7 +46,8 @@ public class MajorUniversityDAO {
                 c.add(Restrictions.or(Restrictions.eq("id", majorUniversity.getId()),
                         Restrictions.like("degree",majorUniversity.getDegree()+ "%"),
                         Restrictions.like("degreeLevel",majorUniversity.getDegreeLevel()+ "%"),
-                        Restrictions.like("university",majorUniversity.getUniversity()+ "%"),
+                        Restrictions.eq("university",majorUniversity.getUniversity()),
+                        Restrictions.eq("major",majorUniversity.getMajor()),
                         Restrictions.like("degreeLevel",majorUniversity.getDegreeLevel()+ "%")));
                 majorUniversitys = c.list();
             }

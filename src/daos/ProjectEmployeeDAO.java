@@ -48,8 +48,8 @@ public class ProjectEmployeeDAO {
                         Restrictions.eq("endDate",projectEmployee.getEndDate()),
                         Restrictions.like("projectEmployeeStatus", "%"+projectEmployee.getProjectEmployeeStatus() + "%"),
                         Restrictions.like("jobDescription", "%"+projectEmployee.getJobDescription()+ "%"),
-                        Restrictions.like("employee", "%"+projectEmployee.getEmployee()+ "%"),
-                        Restrictions.like("project", "%"+projectEmployee.getProject() + "%")));
+                        Restrictions.like("employee", projectEmployee.getEmployee()),
+                        Restrictions.like("project", projectEmployee.getProject())));
                 projects = c.list();
             }
             trasaction.commit();

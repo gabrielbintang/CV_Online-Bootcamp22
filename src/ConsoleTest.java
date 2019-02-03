@@ -5,8 +5,16 @@ import daos.ClientDAO;
 import daos.EducationDAO;
 import daos.EmployeeDAO;
 import daos.ExperienceDAO;
+//<<<<<<< Updated upstream
 import daos.LanguageDAO;
+//=======
+import daos.LanguageEmployeeDAO;
+import daos.MajorDAO;
+import daos.MajorUniversityDAO;
+import daos.OrganizationDAO;
+//>>>>>>> Stashed changes
 import daos.ProjectDAO;
+import daos.ProjectEmployeeDAO;
 import daos.RoleMiiDAO;
 import java.text.ParseException;
 import java.time.Instant;
@@ -18,9 +26,17 @@ import models.Education;
 import models.Employee;
 import models.Experience;
 import models.Language;
+//<<<<<<< Updated upstream
+//=======
+import models.LanguageEmployee;
+import models.Major;
+//>>>>>>> Stashed changes
 import models.MajorUniversity;
+import models.Organization;
 import models.Project;
+import models.ProjectEmployee;
 import models.RoleMii;
+import models.University;
 import org.hibernate.SessionFactory;
 
 /*
@@ -51,12 +67,25 @@ public class ConsoleTest {
         Education education = new Education();
         ProjectDAO projectDAO = new ProjectDAO(sessionFactory);
         Project project = new Project();
+        ProjectEmployeeDAO projectEmployeeDAO = new ProjectEmployeeDAO(sessionFactory);
+        ProjectEmployee projectEmployee = new ProjectEmployee();
         EmployeeDAO employeeDAO = new EmployeeDAO(sessionFactory);
         Employee employee = new Employee();
         ExperienceDAO experienceDAO = new ExperienceDAO(sessionFactory);
         Experience experience = new Experience();
+//<<<<<<< Updated upstream
         LanguageDAO languageDAO = new LanguageDAO(sessionFactory);
         Language language = new Language();
+//=======
+        OrganizationDAO organizationDAO = new OrganizationDAO(sessionFactory);
+        Organization organization = new Organization();
+        MajorDAO majorDAO = new MajorDAO(sessionFactory);
+        Major major = new Major();
+        MajorUniversityDAO majorUniversityDAO = new MajorUniversityDAO(sessionFactory);
+        MajorUniversity majorUniversity = new MajorUniversity();
+        LanguageEmployeeDAO languageEmployeeDAO = new LanguageEmployeeDAO(sessionFactory);
+        LanguageEmployee languageEmployee = new LanguageEmployee();
+//>>>>>>> Stashed changes
 
 //=======================ROLE MII===============================================
         //Insert & Update        
@@ -248,14 +277,24 @@ public class ConsoleTest {
 //==============================Language========================================
 //=======================Project================================================
 //        Delete
-//        achievement.setId("idach007");
-//        achievement.setName("");
-//        achievement.setDescription("");
-//        achievement.setEmployee(new Employee("iduser02"));
-//        System.out.println(achievementDAO.functions(achievement, 2));
+//        project.setId("idpro007");
+//        project.setName("BCA");
+//        project.setAssessment("Bagus");
+//        project.setStartDate(Date.from(Instant.now()));
+//        project.setEndDate(Date.from(Instant.now()));
+//        project.setProjectStatus("done");
+//        project.setProjectSpecification("deskripsibla");
+//        project.setClient(new Client("iduser05"));
+//        projectDAO.functions(project, 2);
 //        Select
-//        project.setId("idpro001");
-//        project.setName("");
+//       project.setId("idpro007");
+//        project.setName("B");
+//        project.setAssessment("B");
+//        project.setStartDate(Date.from(Instant.now()));
+//        project.setEndDate(Date.from(Instant.now()));
+//        project.setProjectStatus("do");
+//        project.setProjectSpecification("");
+//        project.setClient(new Client("iduser05"));
 //        for (Project p : projectDAO.functions(project, 3)) {
 //            System.out.println(p.getId() + "-" + p.getName());
 //        }
@@ -270,6 +309,130 @@ public class ConsoleTest {
 //        project.setClient(new Client("iduser05"));
 //        projectDAO.functions(project, 1);
 //=======================Project============================================
+//=======================ProjectEmployee================================================
+//        Delete
+//        projectEmployee.setId("idpe003");
+//        projectEmployee.setStartDate(Date.from(Instant.now()));
+//        projectEmployee.setEndDate(Date.from(Instant.now()));
+//        projectEmployee.setProjectEmployeeStatus("do");
+//        projectEmployee.setJobDescription("Project Manager");
+//        projectEmployee.setEmployee(new Employee("iduser04"));
+//        projectEmployee.setProject(new Project("idpro001"));
+//        projectEmployeeDAO.functions(projectEmployee, 2);
+//        Select
+//        projectEmployee.setId("id");
+//        projectEmployee.setStartDate(Date.from(Instant.now()));
+//        projectEmployee.setEndDate(Date.from(Instant.now()));
+//        projectEmployee.setProjectEmployeeStatus("do");
+//        projectEmployee.setJobDescription("do");
+//        projectEmployee.setEmployee(new Employee("iduser02"));
+//        projectEmployee.setProject(new Project("idpro001"));
+//        for (ProjectEmployee pe : projectEmployeeDAO.functions(projectEmployee, 3)) {
+//            System.out.println(pe.getId() + "-" + pe.getJobDescription());
+//        }
+//        Insert/update
+//        projectEmployee.setId("idpe003");
+//        projectEmployee.setStartDate(Date.from(Instant.now()));
+//        projectEmployee.setEndDate(Date.from(Instant.now()));
+//        projectEmployee.setProjectEmployeeStatus("do");
+//        projectEmployee.setJobDescription("Project Manager");
+//        projectEmployee.setEmployee(new Employee("iduser04"));
+//        projectEmployee.setProject(new Project("idpro001"));
+//        projectEmployeeDAO.functions(projectEmployee, 1);
+//=======================ProjectEmployee============================================
+//=======================Organization================================================
+//        Delete
+//        organization.setId("idorg004");
+//        organization.setName("MLI");
+//        organization.setStartDate(Date.from(Instant.now()));
+//        organization.setEndDate(Date.from(Instant.now()));
+//        organization.setPosition("Penasehat");
+//        organization.setEmployee(new Employee("iduser07"));
+//        organizationDAO.functions(organization, 2);
+//        Select
+//        organization.setId("idorg003");
+//        organization.setName("");
+//        organization.setStartDate(Date.from(Instant.now()));
+//        organization.setEndDate(Date.from(Instant.now()));
+//        organization.setPosition("");
+//        organization.setEmployee(new Employee("iduser02"));
+//        for (Organization or : organizationDAO.functions(organization, 3)) {
+//            System.out.println(or.getId() + "-" + or.getName());
+//        }
+//        Insert/update
+//        organization.setId("idorg004");
+//        organization.setName("MLI");
+//        organization.setStartDate(Date.from(Instant.now()));
+//        organization.setEndDate(Date.from(Instant.now()));
+//        organization.setPosition("Penasehat");
+//        organization.setEmployee(new Employee("iduser07"));
+//        organizationDAO.functions(organization, 1);
+//=======================Organization============================================
+//=======================Major================================================
+//        Delete
+//        achievement.setId("idach007");
+//        achievement.setName("");
+//        achievement.setDescription("");
+//        achievement.setEmployee(new Employee("iduser02"));
+//        System.out.println(achievementDAO.functions(achievement, 2));
+//        Select
+//        major.setId("idmajor003");
+//        major.setName("");
+//        for (Major maj : majorDAO.functions(major, 3)) {
+//            System.out.println(maj.getId() + "-" + maj.getName());
+//        }
+//        Insert/update
+//        major.setId("idmajor006");
+//        major.setName("Ilmu Komputer");
+//        majorDAO.functions(major, 1);
+        
+//=======================Major============================================
+//=======================MajorUniversity================================================
+//        Delete
+//        majorUniversity.setId("idmu006");
+//        majorUniversity.setDegree("S.Ilkom");
+//        majorUniversity.setDegreeLevel("S1/D4");
+//        majorUniversity.setMajor(new Major("idmajor003"));
+//        majorUniversity.setUniversity(new University("iduniv005"));
+//        majorUniversityDAO.functions(majorUniversity, 2);
+//        Select
+//        majorUniversity.setId("idmajor003");
+//        majorUniversity.setDegree("");
+//        majorUniversity.setDegreeLevel("");
+//        majorUniversity.setMajor(new Major("idmajor006"));
+//        majorUniversity.setUniversity(new University("iduniv005"));
+//        for (MajorUniversity maju : majorUniversityDAO.functions(majorUniversity, 3)) {
+//            System.out.println(maju.getId() + "-" + maju.getDegree());
+//        }
+//        Insert/update
+//        majorUniversity.setId("idmu006");
+//        majorUniversity.setDegree("S.Ilkom");
+//        majorUniversity.setDegreeLevel("S1/D4");
+//        majorUniversity.setMajor(new Major("idmajor003"));
+//        majorUniversity.setUniversity(new University("iduniv005"));
+//        majorUniversityDAO.functions(majorUniversity, 1);
+        
+//=======================MajorUniversity============================================
+//=======================LanguageEmployee================================================
+//        Delete
+//         languageEmployee.setId("idle04");
+//        languageEmployee.setLanguage(new Language("idlang03"));
+//        languageEmployee.setEmployee(new Employee("iduser02"));
+//        languageEmployeeDAO.functions(languageEmployee, 2);
+//        Select
+//        languageEmployee.setId("idle01");
+//        languageEmployee.setLanguage(new Language("idlang02"));
+//        languageEmployee.setEmployee(new Employee("iduser04"));
+//        for (LanguageEmployee le : languageEmployeeDAO.functions(languageEmployee, 3)) {
+//            System.out.println(le.getId() + "-" + le.getEmployee());
+//        }
+//        Insert/update
+//        languageEmployee.setId("idle04");
+//        languageEmployee.setLanguage(new Language("idlang03"));
+//        languageEmployee.setEmployee(new Employee("iduser02"));
+//        languageEmployeeDAO.functions(languageEmployee, 1);
+        
+//=======================LanguageEmployee============================================
         sessionFactory.close();
 //
     }

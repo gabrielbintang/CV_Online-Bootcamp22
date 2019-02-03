@@ -46,7 +46,7 @@ public class OrganizationDAO {
                         Restrictions.like("name", "%"+organization.getName() + "%"),
                         Restrictions.eq("startDate",organization.getStartDate()),
                         Restrictions.eq("employee", organization.getEmployee()),
-                        Restrictions.eq("employee", organization.getPosition()),
+                        Restrictions.eq("position", organization.getPosition()),
                         Restrictions.eq("endDate",organization.getEndDate())));
                 organizations = c.list();
             }

@@ -48,7 +48,7 @@ public class ProjectDAO {
                         Restrictions.eq("endDate",project.getEndDate()),
                         Restrictions.like("projectStatus", "%"+project.getProjectStatus() + "%"),
                         Restrictions.like("assessment", "%"+project.getAssessment() + "%"),
-                        Restrictions.like("client", "%"+project.getClient() + "%"),
+                        Restrictions.like("client", project.getClient()),
                         Restrictions.like("projectSpecification", "%"+project.getProjectSpecification() + "%")));
                 projects = c.list();
             }

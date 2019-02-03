@@ -44,7 +44,7 @@ public class LanguageEmployeeDAO {
             } else if (opt == 3) {
                 Criteria c = session.createCriteria(LanguageEmployee.class);
                 c.add(Restrictions.or(Restrictions.eq("id", languageEmployee.getId()),
-                        Restrictions.like("employee", "%"+languageEmployee.getEmployee() + "%"),
+                        Restrictions.eq("employee",languageEmployee.getEmployee()),
                         Restrictions.eq("language", languageEmployee.getLanguage())));
                 languageEmployees = c.list();
             }
