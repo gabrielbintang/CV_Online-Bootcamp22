@@ -16,6 +16,13 @@ import daos.OrganizationDAO;
 import daos.ProjectDAO;
 import daos.ProjectEmployeeDAO;
 import daos.RoleMiiDAO;
+import daos.MiiInfoDAO;
+import daos.QualificationDAO;
+import daos.QualificationEmployeeDAO;
+import daos.TrainingDAO;
+import daos.UniversityDAO;
+import daos.UserMiiDAO;
+import daos.WorkAssignmentDAO;
 import java.text.ParseException;
 import java.time.Instant;
 import java.util.Date;
@@ -36,7 +43,13 @@ import models.Organization;
 import models.Project;
 import models.ProjectEmployee;
 import models.RoleMii;
+import models.MiiInfo;
+import models.Qualification;
+import models.QualificationEmployee;
+import models.Training;
 import models.University;
+import models.UserMii;
+import models.WorkAssignment;
 import org.hibernate.SessionFactory;
 
 /*
@@ -85,6 +98,20 @@ public class ConsoleTest {
         MajorUniversity majorUniversity = new MajorUniversity();
         LanguageEmployeeDAO languageEmployeeDAO = new LanguageEmployeeDAO(sessionFactory);
         LanguageEmployee languageEmployee = new LanguageEmployee();
+                MiiInfoDAO miiInfoDAO = new MiiInfoDAO(sessionFactory);
+        MiiInfo miiInfo = new MiiInfo();
+        QualificationDAO qualificationDAO = new QualificationDAO(sessionFactory);
+        Qualification qualification = new Qualification();
+        QualificationEmployeeDAO qualificationEmployeeDAO = new QualificationEmployeeDAO(sessionFactory);
+        QualificationEmployee qualificationEmployee = new QualificationEmployee();
+        TrainingDAO trainingDAO = new TrainingDAO(sessionFactory);
+        Training training = new Training();
+        UniversityDAO universityDAO = new UniversityDAO(sessionFactory);
+        University university = new University();
+        UserMiiDAO userMiiDAO = new UserMiiDAO(sessionFactory);
+        UserMii userMii = new UserMii();
+        WorkAssignmentDAO workAssignmentDAO = new WorkAssignmentDAO(sessionFactory);
+        WorkAssignment workAssignment = new WorkAssignment();
 //>>>>>>> Stashed changes
 
 //=======================ROLE MII===============================================
@@ -433,6 +460,107 @@ public class ConsoleTest {
 //        languageEmployeeDAO.functions(languageEmployee, 1);
         
 //=======================LanguageEmployee============================================
+
+//==================================Mii Info====================================
+// insert and update
+//        miiInfo.setId("");
+//        miiInfo.setAddress("Sur");
+//        miiInfo.setPhone("");
+//        miiInfo.setEmail("");
+//        System.out.println(miiInfoDAO.functions(miiInfo, 1));
+// delete
+//        System.out.println(miiInfoDAO.functions(miiInfo, 2));
+// select
+//        for (MiiInfo info : miiInfoDAO.functions(miiInfo, 3)) {
+//            System.out.println(info.getId() + " - " + info.getAddress() + " - " + info.getPhone() + " - " + info.getEmail());
+//        }
+//==================================Mii Info====================================
+//==================================User Mii====================================
+// insert and update
+//        userMii.setId("iduser01");
+//        userMii.setPassword("");
+//        userMii.setName("");
+//        userMii.setEmail("");
+//        userMii.setRole(new RoleMii("client"));
+//        System.out.println(userMiiDAO.functions(userMii, 1));
+// delete
+//        System.out.println(userMiiDAO.functions(userMii, 2));
+// select
+//        for (UserMii user : userMiiDAO.functions(userMii, 3)) {
+//            System.out.println(user.getId() + " - " + user.getName() + " - " + user.getEmail() + " - " + user.getRole().getName());
+//        }
+//==================================User Mii====================================
+//===============================Qualification==================================
+// insert and update
+//        qualification.setId("idq001");
+//        qualification.setName("");
+//        qualification.setSpecialization("");
+//        System.out.println(qualificationDAO.functions(qualification, 1));
+// delete
+//        System.out.println(qualificationDAO.functions(qualification, 2));
+// select
+//        for (Qualification q : qualificationDAO.functions(qualification, 3)) {
+//            System.out.println(q.getId() + " - " + q.getName() + " - " + q.getSpecialization());
+//        }
+//===============================Qualification==================================
+//=========================Qualification Employee===============================
+// insert and update
+//        qualificationEmployee.setId("idqe004");
+//        qualificationEmployee.setEmployee(new Employee("iduser07"));
+//        qualificationEmployee.setQualification(new Qualification("idq004"));
+//        System.out.println(qualificationEmployeeDAO.functions(qualificationEmployee, 1));
+// delete
+//        System.out.println(qualificationEmployeeDAO.functions(qualificationEmployee, 2));
+// select
+//        for (QualificationEmployee qe : qualificationEmployeeDAO.functions(qualificationEmployee, 3)) {
+//            System.out.println(qe.getId() + " - " + qe.getEmployee().getUserMii().getName() + " - " + qe.getQualification().getName());
+//            System.out.println(qe.getId() + " - " + qe.getEmployee() + " - " + qe.getQualification().getName());
+//        }
+//=========================Qualification Employee===============================
+//=================================Training=====================================
+// insert and update
+//        training.setId("idtrain006");
+//        training.setName("traig");
+//        training.setDescription("fdghas");
+//        training.setCertificate("n");
+//        training.setEmployee(new Employee("iduser07"));
+//        System.out.println(trainingDAO.functions(training, 1));
+// delete
+//        System.out.println(trainingDAO.functions(training, 2));
+// select
+//        for (Training t : trainingDAO.functions(training, 3)) {
+//            System.out.println(t.getId() + " - " + t.getName() + " - " + t.getDescription() + " - " + t.getCertificate() + " - " + t.getEmployee().getUserMii().getName());
+//        }
+//=================================Training=====================================
+//=================================University===================================
+// insert and update
+//        university.setId("");
+//        university.setName("");
+//        System.out.println(universityDAO.functions(university, 1));
+// delete
+//        System.out.println(universityDAO.functions(university, 2));
+// select
+//        for (University u : universityDAO.functions(university, 3)) {
+//            System.out.println(u.getId() + " - " + u.getName());
+//        }
+//=================================University===================================
+//==============================Work Assignment=================================
+// insert and update
+//        workAssignment.setId("idwa001");
+//        workAssignment.setStartDate(Date.from(Instant.now()));
+//        workAssignment.setEndDate(Date.from(Instant.now()));
+//        workAssignment.setPosition("");
+//        workAssignment.setCompany("");
+//        workAssignment.setJobDescription("");
+//        workAssignment.setEmployee(new Employee("iduser02"));
+//        System.out.println(workAssignmentDAO.functions(workAssignment, 1));
+// delete
+//        System.out.println(workAssignmentDAO.functions(workAssignment, 2));
+// select
+//        for (WorkAssignment wa : workAssignmentDAO.functions(workAssignment, 3)) {
+//            System.out.println(wa.getId() + " - " + wa.getStartDate() + " - " + wa.getEndDate() + " - " + wa.getPosition() + " - " + wa.getCompany() + " - " + wa.getJobDescription() + " - " + wa.getEmployee().getUserMii().getName());
+//      }
+//==============================Work Assignment=================================
         sessionFactory.close();
 //
     }
