@@ -20,9 +20,9 @@
     <class>models.Project</class>
     <class>models.University</class>
     <class>models.Organization</class>
-    <class>models.RoleMii</class>
     <class>models.MajorUniversity</class>
     <class>models.Client</class>
+    <class>models.RoleMii</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="cv"/>

@@ -1,4 +1,5 @@
 
+import controllers.Controller;
 import controllers.LoginController;
 import daos.AchievementDAO;
 import daos.CertificationDAO;
@@ -114,12 +115,29 @@ public class ConsoleTest {
         WorkAssignmentDAO workAssignmentDAO = new WorkAssignmentDAO(sessionFactory);
         WorkAssignment workAssignment = new WorkAssignment();
 //>>>>>>> Stashed changes
+//
+        Controller<RoleMii> c = new Controller(sessionFactory);         
+        RoleMii roleMii = c.findById(new RoleMii(), "idrole03");
+        System.out.println(roleMii.getName());
+        
+        sessionFactory.close();
+//        Controller<Client> c1 = new Controller(sessionFactory);         
+//        Client client1 = c1.findById(new Client(), "idrole05");
+//        System.out.println(client1.getUserMii().getName());
+//        c.findById(rolemii, "idrole02");
+
+//        for (RoleMii roleMii : c.getAll(rolemii)) {
+//            
+//        System.out.println(c.getAll(rolemii));
+//        }
 
 //=======================ROLE MII===============================================
         //Insert & Update        
 //        rolemii.setId("idrole05");
 //        rolemii.setName("Testing");
-//        System.out.println(roleMiiDAO.functions(rolemii,1));
+       
+        
+        
 //Select
 //        rolemii.setId("idrole02");
 //        rolemii.setName("");
@@ -563,12 +581,13 @@ public class ConsoleTest {
 //      }
 //==============================Work Assignment=================================
 
-        LoginController loginController = new LoginController(sessionFactory);
+//        LoginController loginController = new LoginController(sessionFactory);
+//        
+//        loginController.checkUser(userMii, rolemii);
+//        
         
-        loginController.checkUser(userMii, rolemii);
         
-        
-        sessionFactory.close();
+
 //
     }
 }
