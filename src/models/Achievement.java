@@ -60,6 +60,13 @@ public class Achievement implements Serializable {
         this.description = description;
     }
 
+    public Achievement(String id, String name, String description, Employee employee) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.employee = employee;
+    }
+
     public String getId() {
         return id;
     }
@@ -116,5 +123,5 @@ public class Achievement implements Serializable {
     public String toString() {
         return "models.Achievement[ id=" + id + " ]";
     }
-    
+
 }

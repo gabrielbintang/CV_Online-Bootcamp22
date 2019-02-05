@@ -67,6 +67,14 @@ public class Certification implements Serializable {
         this.description = description;
     }
 
+    public Certification(String id, String name, Date expiredDate, String description, Employee employee) {
+        this.id = id;
+        this.name = name;
+        this.expiredDate = expiredDate;
+        this.description = description;
+        this.employee = employee;
+    }
+
     public String getId() {
         return id;
     }

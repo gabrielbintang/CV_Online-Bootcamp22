@@ -110,15 +110,21 @@ public class Employee implements Serializable {
         this.id = id;
     }
 
-    public Employee(String id, String phone, String maritalStatus, String nationality, Date birthDate, Date startDate, String isDelete) {
+    public Employee(String id, String religion, String phone, String maritalStatus, String nationality, Date birthDate, Date startDate, Date endDate, String isDelete, Serializable photo, UserMii userMii) {
         this.id = id;
+        this.religion = religion;
         this.phone = phone;
         this.maritalStatus = maritalStatus;
         this.nationality = nationality;
         this.birthDate = birthDate;
         this.startDate = startDate;
+        this.endDate = endDate;
         this.isDelete = isDelete;
+        this.photo = photo;
+        this.userMii = userMii;
     }
+
+
 
     public String getId() {
         return id;

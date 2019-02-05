@@ -60,6 +60,15 @@ public class Experience implements Serializable {
         this.description = description;
     }
 
+    public Experience(String id, String name, String description, Employee employee) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.employee = employee;
+    }
+    
+    
+
     public String getId() {
         return id;
     }

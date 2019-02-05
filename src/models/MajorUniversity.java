@@ -69,6 +69,15 @@ public class MajorUniversity implements Serializable {
         this.degreeLevel = degreeLevel;
     }
 
+    public MajorUniversity(String id, String degree, String degreeLevel, Major major, University university) {
+        this.id = id;
+        this.degree = degree;
+        this.degreeLevel = degreeLevel;
+        this.major = major;
+        this.university = university;
+    }
+    
+
     public String getId() {
         return id;
     }

@@ -73,6 +73,17 @@ public class Education implements Serializable {
         this.ip = ip;
     }
 
+    public Education(String id, Date startDate, Date endDate, String ip, MajorUniversity majorUniversity, Employee employee) {
+        this.id = id;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.ip = ip;
+        this.employee = employee;
+        this.majorUniversity = majorUniversity;
+    }
+    
+    
+
     public String getId() {
         return id;
     }

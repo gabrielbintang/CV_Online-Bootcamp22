@@ -1,4 +1,5 @@
 
+import controllers.LoginController;
 import daos.AchievementDAO;
 import daos.CertificationDAO;
 import daos.ClientDAO;
@@ -561,6 +562,12 @@ public class ConsoleTest {
 //            System.out.println(wa.getId() + " - " + wa.getStartDate() + " - " + wa.getEndDate() + " - " + wa.getPosition() + " - " + wa.getCompany() + " - " + wa.getJobDescription() + " - " + wa.getEmployee().getUserMii().getName());
 //      }
 //==============================Work Assignment=================================
+
+        LoginController loginController = new LoginController(sessionFactory);
+        
+        loginController.checkUser(userMii, rolemii);
+        
+        
         sessionFactory.close();
 //
     }

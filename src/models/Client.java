@@ -71,6 +71,14 @@ public class Client implements Serializable {
         this.isDelete = isDelete;
     }
 
+    public Client(String id, String address, String business, String isDelete, UserMii userMii) {
+        this.id = id;
+        this.address = address;
+        this.business = business;
+        this.isDelete = isDelete;
+        this.userMii = userMii;
+    }
+
     public String getId() {
         return id;
     }

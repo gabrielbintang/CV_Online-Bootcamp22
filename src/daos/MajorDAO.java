@@ -44,7 +44,7 @@ public class MajorDAO {
             } else if (opt == 3) {
                 Criteria c = session.createCriteria(Major.class);
                 c.add(Restrictions.or(Restrictions.eq("id", major.getId()),
-                        Restrictions.like("name", major.getName()+ "%")));
+                        Restrictions.like("name", "%"+major.getName()+"%")));
                 majors = c.list();
             }
             trasaction.commit();
